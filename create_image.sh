@@ -67,7 +67,7 @@ sudo yum install -y protobuf-compiler cmake openssl-devel
 wget "http://archive.apache.org/dist/hadoop/common/hadoop-2.4.1/hadoop-2.4.1-src.tar.gz"
 tar xvzf hadoop-2.4.1-src.tar.gz
 cd hadoop-2.4.1-src
-mvn package -Pdist,native -DskipTests -Dtar
+mvn package -Pdist,native -DskipTests -Dtar -Dmaven.javadoc.skip=true
 sudo mv hadoop-dist/target/hadoop-2.4.1/lib/native/* /root/hadoop-native
 
 # Install Snappy lib (for Hadoop)
