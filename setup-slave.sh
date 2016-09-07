@@ -133,5 +133,5 @@ popd > /dev/null
 echo '* soft nofile 1000000' >> /etc/security/limits.conf
 echo '* hard nofile 1000000' >> /etc/security/limits.conf
 
-yum install python34-devel.x86_64 python34-pip
+yum -y install python34-devel.x86_64 python34-pip
 pip-3.4 install jupyter boto3 numpy
