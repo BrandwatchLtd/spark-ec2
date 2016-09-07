@@ -20,7 +20,3 @@ rm scala-*.tgz
 mv `ls -d scala-* | grep -v ec2` scala
 
 popd > /dev/null
-
-echo "Installing Python 3"
-yum -y install python34-devel.x86_64 python34-pip
-pip-3.4 install jupyter boto3 numpy

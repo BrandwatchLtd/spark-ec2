@@ -80,3 +80,8 @@ ln -sf /usr/lib64/libsnappy.so.1 /root/hadoop-native/.
 echo '#!/bin/bash' > /usr/bin/realpath
 echo 'readlink -e "$@"' >> /usr/bin/realpath
 chmod a+x /usr/bin/realpath
+
+
+echo "Installing Python 3"
+yum -y install python34-devel.x86_64 python34-pip blas64 blas
+pip-3.4 install jupyter boto3 numpy
