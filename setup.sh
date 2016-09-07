@@ -115,3 +115,5 @@ for module in $MODULES; do
 done
 
 popd > /dev/null
+
+echo "PYTHONHASHSEED=0" >> /root/.bashrc
