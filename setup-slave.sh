@@ -132,3 +132,6 @@ popd > /dev/null
 # this is to set the ulimit for root and other users
 echo '* soft nofile 1000000' >> /etc/security/limits.conf
 echo '* hard nofile 1000000' >> /etc/security/limits.conf
+
+yum install python34-devel.x86_64 python34-pip
+pip-3.4 install jupyter boto3 numpy

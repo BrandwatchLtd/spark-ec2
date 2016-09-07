@@ -115,3 +115,6 @@ for module in $MODULES; do
 done
 
 popd > /dev/null
+
+yum install python34-devel.x86_64 python34-pip
+pip-3.4 install jupyter boto3 numpy jupyter
