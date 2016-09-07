@@ -97,11 +97,8 @@ SPARK_TACHYON_MAP = {
     "1.5.1": "0.7.1",
     "1.5.2": "0.7.1",
     "1.6.0": "0.8.2",
-<<<<<<< HEAD
     "2.0.0-preview": "",
-=======
     "1.6.1": "0.8.2",
->>>>>>> d2b73fd... Add Tachyon version for spark 1.6.1
 }
 
 DEFAULT_SPARK_VERSION = SPARK_EC2_VERSION
