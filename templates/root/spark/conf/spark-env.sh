@@ -29,3 +29,6 @@ if [ $(id -u) == "0" ]
 then
     ulimit -n 1000000
 fi
+
+export PYSPARK_PYTHON=/usr/bin/python3
+export PYSPARK_DRIVER_PYTHON=/usr/bin/python3
