@@ -116,4 +116,5 @@ done
 
 popd > /dev/null
 
-echo "PYTHONHASHSEED=0" >> /root/.bashrc
+echo "export PYTHONHASHSEED=0" >> /root/.bashrc
+pip-3.4 install jupyter boto3 numpy

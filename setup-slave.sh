@@ -133,4 +133,4 @@ popd > /dev/null
 echo '* soft nofile 1000000' >> /etc/security/limits.conf
 echo '* hard nofile 1000000' >> /etc/security/limits.conf
 
-echo "PYTHONHASHSEED=0" >> /root/.bashrc
+echo "export PYTHONHASHSEED=0" >> /root/.bashrc
