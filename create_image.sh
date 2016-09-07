@@ -1,7 +1,7 @@
 #!/bin/bash
-# Creates an AMI for the Spark EC2 scripts starting with a stock Amazon 
+# Creates an AMI for the Spark EC2 scripts starting with a stock Amazon
 # Linux AMI.
-# This has only been tested with Amazon Linux AMI 2014.03.2 
+# This has only been tested with Amazon Linux AMI 2014.03.2
 
 set -e
 
@@ -11,12 +11,12 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Dev tools
-sudo yum install -y java-1.7.0-openjdk-devel gcc gcc-c++ ant git
+sudo yum install -y java-1.8.0-openjdk-devel gcc gcc-c++ ant git
 # Perf tools
 sudo yum install -y dstat iotop strace sysstat htop perf
 sudo debuginfo-install -q -y glibc
 sudo debuginfo-install -q -y kernel
-sudo yum --enablerepo='*-debug*' install -q -y java-1.7.0-openjdk-debuginfo.x86_64
+sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
 
 # PySpark and MLlib deps
 sudo yum install -y  python-matplotlib python-tornado scipy libgfortran
@@ -39,7 +39,7 @@ sudo sed -i 's/.*swap.*//g' /etc/cloud/cloud.cfg
 
 echo "mounts:" >> /etc/cloud/cloud.cfg
 echo " - [ ephemeral0, /mnt, auto, \"defaults,noatime,nodiratime\", "\
-  "\"0\", \"0\" ]" >> /etc/cloud.cloud.cfg
+  "\"0\", \"0\" ]" >> /etc/cloud/cloud.cfg
 
 for x in {1..23}; do
   echo " - [ ephemeral$x, /mnt$((x + 1)), auto, "\
@@ -54,7 +54,7 @@ mv apache-maven-3.2.3 /opt/
 
 # Edit bash profile
 echo "export PS1=\"\\u@\\h \\W]\\$ \"" >> ~/.bash_profile
-echo "export JAVA_HOME=/usr/lib/jvm/java-1.7.0" >> ~/.bash_profile
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0" >> ~/.bash_profile
 echo "export M2_HOME=/opt/apache-maven-3.2.3" >> ~/.bash_profile
 echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bash_profile
 
@@ -67,7 +67,7 @@ sudo yum install -y protobuf-compiler cmake openssl-devel
 wget "http://archive.apache.org/dist/hadoop/common/hadoop-2.4.1/hadoop-2.4.1-src.tar.gz"
 tar xvzf hadoop-2.4.1-src.tar.gz
 cd hadoop-2.4.1-src
-mvn package -Pdist,native -DskipTests -Dtar
+mvn package -Pdist,native -DskipTests -Dtar -Dmaven.javadoc.skip=true
 sudo mv hadoop-dist/target/hadoop-2.4.1/lib/native/* /root/hadoop-native
 
 # Install Snappy lib (for Hadoop)
